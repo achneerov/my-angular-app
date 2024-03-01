@@ -1,0 +1,39 @@
+<div class="m-4">
+  <!-- For available options -->
+  <div class="lists-container">
+    <h2>
+      Your lists:
+    </h2>
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      #todoList="cdkDropList"
+      [cdkDropListData]="options"
+      [cdkDropListConnectedTo]="[doneList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of options; let i = index" class="example-box" cdkDrag [matTooltip]="getTooltipText(item)">
+        {{item[0]}}
+      </div>
+    </div>
+  </div>
+
+  <!-- For selected options -->
+  <div class="lists-container">
+    <h2>
+      Lists to be checked
+    </h2>    
+    <div
+      cdkDropList
+      cdkDropListOrientation="horizontal"
+      #doneList="cdkDropList"
+      [cdkDropListData]="selected"
+      [cdkDropListConnectedTo]="[todoList]"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div *ngFor="let item of selected; let i = index" class="example-box" cdkDrag [matTooltip]="getTooltipText(item)">
+        {{item[0]}}
+      </div>
+    </div>
+  </div>
+</div>

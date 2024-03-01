@@ -1,0 +1,13 @@
+<!-- add-option.component.html -->
+<body class="m-4">
+  <form [formGroup]="optionForm" (ngSubmit)="onSubmit()" class="mt-3">
+    <div class="form-group mb-1">
+      <h2>
+        Add a list:
+      </h2>
+      <textarea class="form-control mb-1" formControlName="message" id="message" placeholder="Fruits,Apple,Pear,Orange,Banana" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</body>
+ 
